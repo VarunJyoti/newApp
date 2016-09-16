@@ -1,23 +1,28 @@
-var myApp = angular.module('myApp', ['ui.router']);
+angular.module('myApp', ['ui.router']);
+angular.module('myApp').controller("MainCtrl", function($scope){
+    
+});
 
-myApp.config(function($stateProvider, $locationProvider) {
+angular.module('myApp').config(function($stateProvider, $locationProvider) {
   
   var loginState = {
     name: 'login',
     url: '/',
-    templateUrl: 'views/login.html'
+    templateUrl: 'views/login.html',
+    controller:"LoginController"
   }
 
   var aboutState = {
-    name: 'about',
-    url: '/about',
-    template: '<h3>Its the UI-Router hello world app!</h3>'
+    name: 'dashboard',
+    url: '/dashboard',
+    templateUrl: 'views/dashboard.html'
   }
 
   $stateProvider.state(loginState);
   $stateProvider.state(aboutState);
-   $locationProvider.html5Mode({
-  enabled: true,
-  requireBase: false
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  })
 });
-});
+
