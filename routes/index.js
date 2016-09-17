@@ -6,4 +6,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+/* GET Userlist page. */
+router.get('/userlist', function(req, res) {
+    var db = req.db;
+    var collection = db.get('users');
+    collection.find({},{},function(e,docs){
+        res.json({"userlist" : docs});
+    });
+});
+
 module.exports = router;
