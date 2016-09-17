@@ -10,6 +10,13 @@ var users = require('./routes/users');
 
 var app = express();
 
+// New Code
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('mongodb://simerpreet:simerpreet@ds033126.mlab.com:33126/gasstation');
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -24,6 +31,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('*', function(req, res) {
       res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
   });
+
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
+
 app.use('/', routes);
 app.use('/users', users);
 
@@ -57,6 +72,26 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+app.get('/',function(req,res){
+  db.driver.admin.listDatabases(function(e,dbs){
+      res.json(dbs);
+  });
+});
+
+app.get('/collections',function(req,res){
+  db.driver.collectionNames(function(e,names){
+    res.json(names);
+  })
+});
+
+app.get('/collections/:name',function(req,res){
+  var collection = db.get(req.params.name);
+  collection.find({},{limit:20},function(e,docs){
+    res.json(docs);
+  })
+});
+
 
 
 module.exports = app;
