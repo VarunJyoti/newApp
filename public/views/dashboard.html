@@ -37,14 +37,17 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li>
                         <a ui-sref=".content"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a ui-sref=".addcompany"><i class="fa fa-fw fa-bar-chart-o"></i> Company Management</a>
+                        <a ui-sref=".listcompany"><i class="fa fa-fw fa-bar-chart-o"></i> Company List</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> User Management</a>
+                        <a ui-sref=".addcompany"><i class="fa fa-fw fa-bar-chart-o"></i> Add Company</a>
+                    </li>
+                    <li>
+                        <a ui-sref=".listuser"><i class="fa fa-fw fa-table"></i> User List</a>
                     </li>
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Repoting</a>
@@ -52,14 +55,14 @@
                     <li>
                         <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Daily entry</a>
                     </li>
-                    <!-- <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                    <!--<li>
+                        <a data-toggle="collapse"><i class="fa fa-fw fa-arrows-v"></i> Company Management <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="#">Company List</a>
                             </li>
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a uisref=".addcompany"><i class="fa fa-fw fa-bar-chart-o"></i> Add Company</a>
                             </li>
                         </ul>
                     </li>

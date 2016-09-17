@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router']);
+angular.module('myApp', ['ui.router', 'smart-table']);
 angular.module('myApp').controller("MainCtrl", function($scope, $state){});
 
 angular.module('myApp').config(function($stateProvider, $locationProvider) {
@@ -31,10 +31,28 @@ angular.module('myApp').config(function($stateProvider, $locationProvider) {
     templateUrl: 'views/addcompany.html'
   }
 
+  var listCompanyState = {
+    name: 'dashboard.listcompany',
+    parent: aboutState,
+    url: 'listcompany',
+    templateUrl: 'views/companylist.html',
+    controller: 'CompanyController'
+  }
+
+  var listUserState = {
+    name: 'dashboard.listuser',
+    parent: aboutState,
+    url: 'listuser',
+    templateUrl: 'views/userlist.html',
+    controller: 'UserController'
+  }
+
   $stateProvider.state(loginState);
   $stateProvider.state(aboutState);
   $stateProvider.state(contentState);
   $stateProvider.state(addCompanyState);
+  $stateProvider.state(listCompanyState);
+  $stateProvider.state(listUserState);
 
   $locationProvider.html5Mode({
     enabled: true,

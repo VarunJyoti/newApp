@@ -1,0 +1,23 @@
+<h3 class="panel-title"><i class="fa fa-tasks"></i> Company List</h3><br>
+<table st-table="rowCollection" class="table table-striped">
+	    <thead>
+	      <tr>
+		      <th>Company name</th>
+		      <th>Username</th>
+		      <th>Address</th>
+	      	<th>phone number</th>
+	      	<th>Email</th>
+      	</tr>
+    	</thead>
+    	<tbody>
+      	<tr ng-repeat="row in rowCollection">
+      		<td>{{row.firstName}}</td>
+        	<td>{{row.lastName}}</td>
+      		<td>{{row.birthDate | date:'shortDate'}}</td>
+    	  	<td>{{row.balance}}</td>
+      		<td>{{row.email}}</td>
+          <td><i class="fa fa-pencil"></i></td>
+          <td><i class="fa fa-trash"></i></td>
+       	</tr>
+	    </tbody>
+    </table>
