@@ -26,6 +26,9 @@ app.get('*', function(req, res) {
   });
 app.use('/', routes);
 app.use('/users', users);
+app.get('*', function(req, res) {
+        res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
