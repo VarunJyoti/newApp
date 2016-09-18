@@ -13,9 +13,9 @@
       	<tr ng-repeat="row in rowCollection">
       		<td>{{row.firstName}}</td>
         	<td>{{row.lastName}}</td>
-    	  	<td>{{row.birthDate}}</td>
+    	  	<td>{{row.phone}}</td>
       		<td>{{row.email}}</td>
-          <td><i class="fa fa-pencil"></i></td>
+          <td><i class="fa fa-pencil" ng-click="addEditUser(row)"></i></td>
           <td><i class="fa fa-trash"></i></td>
        	</tr>
 	    </tbody>

@@ -64,6 +64,14 @@ angular.module('myApp').config(function($stateProvider, $locationProvider) {
     controller: 'ProductController'
   }
 
+  var addProductState = {
+    name: 'dashboard.addproduct',
+    parent: aboutState,
+    url: 'addproduct/{productId}',
+    templateUrl: 'views/addproduct.html',
+    controller: 'ProductController'
+  }
+
   $stateProvider.state(loginState);
   $stateProvider.state(aboutState);
   $stateProvider.state(contentState);
@@ -72,6 +80,7 @@ angular.module('myApp').config(function($stateProvider, $locationProvider) {
   $stateProvider.state(listUserState);
   $stateProvider.state(addUserState);
   $stateProvider.state(listProductState);
+  $stateProvider.state(addProductState);
 
   $locationProvider.html5Mode({
     enabled: true,
