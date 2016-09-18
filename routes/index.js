@@ -16,4 +16,27 @@ router.get('/userlist', function(req, res) {
     });
 });
 
+/* POST 
+Param: username,password
+*/
+router.post('/add_user', function(req, res) {
+
+  var db = req.db;
+  var collection = db.get('users');
+  
+  var userName = req.body.username;
+  var password = req.body.password;
+
+  collection.insert({"name":userName,"password":password
+}, function(err, docs) {
+    if (err) {
+      res.json({"error":err});
+    }
+    else {
+      res.json(docs);
+    }
+  });
+
+});
+
 module.exports = router;
