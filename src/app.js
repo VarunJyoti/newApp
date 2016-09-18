@@ -26,8 +26,8 @@ angular.module('myApp').config(function($stateProvider, $locationProvider) {
 
   var addCompanyState = {
     name: 'dashboard.addcompany',
-    parent: aboutState,
-    url: 'addcompany',
+    parent:aboutState,
+    url: 'addcompany/{companyId}',
     templateUrl: 'views/addcompany.html'
   }
 
