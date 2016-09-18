@@ -12,12 +12,33 @@ router.get('/userlist', function(req, res) {
     var db = req.db;
     var collection = db.get('users');
     collection.find({},{},function(e,docs){
-        res.json({"userlist" : docs});
+        res.json(docs);
     });
 });
 
+
+/* GET user by email. 
+Params
+	- email STRING
+*/
+router.get('/get_user', function(req, res) {
+    var db = req.db;
+    var collection = db.get('users');
+
+    var userEmail = req.params.email;
+
+    collection.find({email:userEmail},function(e,docs){
+        res.json(docs);
+    });
+});
+
+
 /* POST 
-Param: username,password
+Params:
+	-username STRING
+	-password STRING
+	-email	STRING
+	-permissions ARRAY eg "superadmin","company","supervisor","enduser"
 */
 router.post('/add_user', function(req, res) {
 
@@ -25,10 +46,21 @@ router.post('/add_user', function(req, res) {
   var collection = db.get('users');
   
   var userName = req.body.username;
+  var email = req.body.email;
   var password = req.body.password;
+  var permissions = req.body.permissions;
 
-  collection.insert({"name":userName,"password":password
-}, function(err, docs) {
+  var userJsonObj = {
+	"name": userName,
+	"email": email,
+	"password": password,
+	"created_on": new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
+	"modified_on": new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
+	"status": 1,
+	"permissions": [permissions]
+}
+
+  collection.insert(userJsonObj, function(err, docs) {
     if (err) {
       res.json({"error":err});
     }
