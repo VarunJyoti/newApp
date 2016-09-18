@@ -200,3 +200,11 @@ input {
     position: relative;
     z-index: 9999;
 }
+.companyheader {
+   h3 {
+    float:left;
+   }
+   button {
+    float:right;
+   }
+}
