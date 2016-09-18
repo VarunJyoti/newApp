@@ -8,4 +8,12 @@ angular.module('myApp').controller("UserController", function($scope, $state){
       {firstName: 'Francoise', lastName: 'hj@d.com', birthDate: "53453", email: 'raymondef@gmail.com'}
   ];
 
+  $scope.addEditUser = function(){
+  	$state.go("dashboard.adduser",{userId:""});
+  }
+
+  $scope.goBack = function(){
+  	$state.go("dashboard.listuser");
+  }
+
 })

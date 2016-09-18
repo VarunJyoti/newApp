@@ -11,4 +11,8 @@ angular.module('myApp').controller("CompanyController", function($scope, $state,
   $scope.addEditCompany = function(){
   	$state.go("dashboard.addcompany",{companyId:""});
   }
+
+  $scope.goBack = function(){
+    $state.go("dashboard.listcompany");
+  }
 })

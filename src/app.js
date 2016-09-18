@@ -28,7 +28,8 @@ angular.module('myApp').config(function($stateProvider, $locationProvider) {
     name: 'dashboard.addcompany',
     parent:aboutState,
     url: 'addcompany/{companyId}',
-    templateUrl: 'views/addcompany.html'
+    templateUrl: 'views/addcompany.html',
+    controller: 'CompanyController'
   }
 
   var listCompanyState = {
@@ -47,12 +48,30 @@ angular.module('myApp').config(function($stateProvider, $locationProvider) {
     controller: 'UserController'
   }
 
+  var addUserState = {
+    name: 'dashboard.adduser',
+    parent: aboutState,
+    url: 'adduser/{userId}',
+    templateUrl: 'views/adduser.html',
+    controller: 'UserController'
+  }
+
+  var listProductState = {
+    name: 'dashboard.listproduct',
+    parent: aboutState,
+    url: 'listproduct',
+    templateUrl: 'views/productlist.html',
+    controller: 'ProductController'
+  }
+
   $stateProvider.state(loginState);
   $stateProvider.state(aboutState);
   $stateProvider.state(contentState);
   $stateProvider.state(addCompanyState);
   $stateProvider.state(listCompanyState);
   $stateProvider.state(listUserState);
+  $stateProvider.state(addUserState);
+  $stateProvider.state(listProductState);
 
   $locationProvider.html5Mode({
     enabled: true,
