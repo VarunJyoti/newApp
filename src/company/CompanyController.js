@@ -1,4 +1,4 @@
-angular.module('myApp').controller("CompanyController", function($scope, $state,$uibModal, $stateParams,DataService){
+angular.module("gasstation.company").controller("CompanyController", function($scope, $state,$uibModal, $stateParams,CompanyService){
 	$scope.rowCollection = [
       {companyId: "1", name: "dssf", phone: '323243', username: 'sa@e.com', address: "USA", balance: 102, email: 'whatever@gmail.com'},
       {companyId: "2", name: "fhhd", phone: '6565765', username: 'as@sa.com', address: "India", balance: -2323.22, email: 'oufblandou@gmail.com'},

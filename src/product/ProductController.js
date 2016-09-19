@@ -1,4 +1,4 @@
-angular.module('myApp').controller("ProductController", function($scope, $state, $stateParams){
+angular.module('gasstation.product').controller("ProductController", function($scope, $state, $stateParams){
 	$scope.rowCollection = [
       {productId: "1", name: 'Regular', price: '1.34', quantity: "21"},
       {productId: "2", name: 'Super', price: '3.34', quantity: "24"},

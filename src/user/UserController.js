@@ -1,6 +1,6 @@
-angular.module('myApp').controller("UserController", function($scope, $state, $stateParams, $http, DataService){
+angular.module('gasstation.user').controller("UserController", function($scope, $state, $stateParams, $http, UserService){
 
- DataService.getUserList.query(function(response){
+ UserService.getUserList.query(function(response){
     $scope.rowCollection = response;
   },function(failed){
     
