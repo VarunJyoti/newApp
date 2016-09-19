@@ -1,4 +1,4 @@
-angular.module('myApp').controller("CompanyController", function($scope, $state,$uibModal, $stateParams){
+angular.module('myApp').controller("CompanyController", function($scope, $state,$uibModal, $stateParams,DataService){
 	$scope.rowCollection = [
       {companyId: "1", name: "dssf", phone: '323243', username: 'sa@e.com', address: "USA", balance: 102, email: 'whatever@gmail.com'},
       {companyId: "2", name: "fhhd", phone: '6565765', username: 'as@sa.com', address: "India", balance: -2323.22, email: 'oufblandou@gmail.com'},
@@ -7,6 +7,13 @@ angular.module('myApp').controller("CompanyController", function($scope, $state,
       {companyId: "5", name: "fde", phone: '5435', username: 'as@sa.com', address: "India", balance: -2323.22, email: 'oufblandou@gmail.com'},
       {companyId: "6", name: "rdd", phone: '54353', username: 'hj@d.com', address: "Canada", balance: 42343, email: 'raymondef@gmail.com'}
   ];
+
+  /*DataService.getCompanyList().query(function(response){
+  	$scope.rowCollection = response;
+  },function(failed){
+
+  });*/
+
   if($stateParams.companyId != ""){
     $scope.record = $scope.rowCollection.find(function(e){
       if(e.companyId == $stateParams.companyId){

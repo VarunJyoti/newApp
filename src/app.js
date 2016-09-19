@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router','ui.bootstrap', 'smart-table']);
+angular.module('myApp', ['ui.router','ui.bootstrap', 'smart-table','ngResource']);
 angular.module('myApp').controller("MainCtrl", function($scope, $state){});
 
 angular.module('myApp').config(function($stateProvider, $locationProvider) {

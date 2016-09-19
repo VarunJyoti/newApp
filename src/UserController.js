@@ -1,15 +1,11 @@
-angular.module('myApp').controller("UserController", function($scope, $state, $stateParams, $http){
+angular.module('myApp').controller("UserController", function($scope, $state, $stateParams, $http, DataService){
 
-  $http({
-    method: 'GET',
-    url: '/userlist'
-  }).then(function (response) {
-      $scope.rowCollection = response.data;
-    }, function (response) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-    });
-	
+ DataService.getUserList.query(function(response){
+    $scope.rowCollection = response;
+  },function(failed){
+    
+  });
+
   if($stateParams.userId){
     $scope.record = $scope.rowCollection.find(function(e){
         if(e.userId == $stateParams.userId){
